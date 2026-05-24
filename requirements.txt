@@ -1,0 +1,35 @@
+# Core RAG framework
+haystack-ai==2.26.1
+haystack-experimental==0.19.0
+
+# Vector store
+qdrant-client==1.17.1
+qdrant-haystack==10.3.0
+
+# Document conversion — Unstructured (runs against local Docker API)
+unstructured-fileconverter-haystack
+
+# Embeddings (local sentence-transformers + HuggingFace API)
+FlagEmbedding
+sentence-transformers==5.3.0
+transformers==5.6.2
+accelerate==1.13.0
+# torch/torchvision are installed separately in the Dockerfile with the CPU wheel
+# Add torch/torchvision only for non-Docker installs (avoid large CUDA install):
+# torch==2.6.0
+# torchvision==0.21.0
+
+# LLM backends
+openai==2.29.0
+mistral-haystack==1.2.0
+mistralai>=2.0.0
+# Evaluation
+ragas==0.4.3
+
+# Utilities
+nltk>=3.9.1
+pandas==3.0.1
+numpy==2.4.3
+pillow==12.1.1
+hypster==0.3.9
+python-dotenv==1.2.2

@@ -1,0 +1,55 @@
+services:
+  # Unstructured local API
+  unstructured-api:
+    image: downloads.unstructured.io/unstructured-io/unstructured-api:latest
+    ports:
+      - '8000:8000'
+    environment:
+      - WORKERS=4
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'python',
+          '-c',
+          'import socket; s=socket.create_connection(("localhost",8000),timeout=5); s.close()',
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  # RAG pipeline app
+  app:
+    build: .
+    stdin_open: true
+    tty: true
+    command: sleep infinity # keeps container alive; use docker exec to run scripts
+    depends_on:
+      unstructured-api:
+        condition: service_healthy
+    volumes:
+      - ./config:/app/config
+      - ./pipeline:/app/pipeline
+      - ./orchestration:/app/orchestration
+      - ./evaluation:/app/evaluation
+      - ./logs:/app/logs
+      - ./scripts:/app/scripts
+      - ./data:/app/data
+      - hf_cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    env_file:
+      - .env
+    environment:
+      - UNSTRUCTURED_API_URL=http://unstructured-api:8000/general/v0/general
+      - TZ=Europe/Brussels
+      - PYTHONDONTWRITEBYTECODE=1
+
+volumes:
+  hf_cache: # persists HuggingFace model cache across container restarts

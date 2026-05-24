@@ -1,0 +1,36 @@
+# Secrets
+.env
+.env.*
+.env.local
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.venv/
+
+# IDE / tools
+.claude/
+
+# Docker
+.dockerignore
+
+# Dataset — contains company-sensitive data, not redistributed
+data/
+data/raw/
+data/golden_set/
+
+# Pipeline results — too large / generated artefacts
+evaluation/results/
+
+# Notebooks — not published with the source release
+notebooks/
+
+# Dev scratch areas
+/tests
+/notes
