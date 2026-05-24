@@ -69,7 +69,7 @@ This downloads all three embedding models into a persistent HuggingFace cache vo
 | `QDRANT_API_KEY` | Yes      | Qdrant API key                                                            |
 | `HF_TOKEN`       | Yes      | HuggingFace access token (embedding models + LLM inference via HF router) |
 | `RAGAS_BASE_URL` | Yes      | OpenAI-compatible endpoint for the RAGAS evaluator LLM                    |
-| `RAGAS_MODEL`    | Yes      | Model name for the RAGAS evaluator (e.g. `gpt-4o-mini`)                   |
+| `RAGAS_MODEL`    | Yes      | Model name for the RAGAS evaluator (e.g. `gpt-oss:20b`)                   |
 | `SCHOOL_API_KEY` | No       | Alternative key for the RAGAS evaluator — overrides `HF_TOKEN` if set     |
 
 ---
