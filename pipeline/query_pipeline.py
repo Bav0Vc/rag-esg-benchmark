@@ -22,7 +22,7 @@ from haystack_integrations.components.retrievers.qdrant import QdrantEmbeddingRe
 load_dotenv()
 
 
-_PROMPT_TEMPLATE = """Answer the question in Italian based on the context. \
+_PROMPT_TEMPLATE = """Answer the question based on the context. \
 Also include the filename and page number or page name of the document containing the retrieved chunk, on a new line after the answer to the question. Output only in valid JSON.
 Context:
 {% for doc in documents %}

@@ -187,3 +187,11 @@ S_overall = 0.35·F + 0.15·AR + 0.25·SA + 0.15·CR + 0.10·CP
 ## Data & Privacy
 
 Source documents and the golden-set questionnaire are **not included**. The benchmark was developed using Italian ESG compliance documents provided under a research agreement; these documents are not redistributed.
+
+---
+
+## Licentie
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details.
+
+Copyright (c) 2026 Bavo Vancoppernolle
