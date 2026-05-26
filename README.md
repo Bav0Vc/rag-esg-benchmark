@@ -172,15 +172,13 @@ Qdrant collection names follow the pattern `{chunker}_{embedder}[_{llm}]` (slash
 
 ## Evaluation Metrics
 
-| Metric             | Source                               | Weight in S_overall |
-| ------------------ | ------------------------------------ | ------------------- |
-| Faithfulness       | RAGAS 0.4.3                          | 0.35                |
-| Source Attribution | Custom (exact filename + page match) | 0.25                |
-| Context Recall     | RAGAS 0.4.3                          | 0.15                |
-| Answer Relevancy   | RAGAS 0.4.3                          | 0.15                |
-| Context Precision  | RAGAS 0.4.3                          | 0.10                |
-
-S_overall = 0.35·F + 0.15·AR + 0.25·SA + 0.15·CR + 0.10·CP
+| Metric             | Source                               |
+| ------------------ | ------------------------------------ |
+| Faithfulness       | RAGAS 0.4.3                          |
+| Source Attribution | Custom (exact filename + page match) |
+| Context Recall     | RAGAS 0.4.3                          |
+| Answer Relevancy   | RAGAS 0.4.3                          |
+| Context Precision  | RAGAS 0.4.3                          |
 
 ---
 
